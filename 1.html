@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome Home Page</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.navbar 
+{
+	overflow: hidden;
+	background-color:grey;
+}
+.navbar a 
+{
+	float: left;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+}
+.navbar a.right {
+  float: right;
+}
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: grey;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position:absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  min-height:180px
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+.subnav .subnavbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: grey;
+  font-family: inherit;
+  margin: 0;
+}
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: grey;
+}
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color:grey;
+  width: 100%;
+  z-index: 1;
+}
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+.subnav-content a:hover {
+  background-color: #eee;
+  color: black;
+}
+.subnav:hover .subnav-content {
+  display: block;
+}
+.row {  
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.side {
+  -ms-flex: 20%; 
+  flex: 20%;
+  background-color:white;
+  padding: 10px;
+	border:2px solid black;
+}
+.main {   
+	-ms-flex: 40%;
+	flex:40%;
+	background-color: white;
+	padding: 10px;
+	border:2px solid black;
+}
+.main1 {
+	-ms-flex: 20%;
+	flex:20%;
+	background-color: white;
+	padding: 10px;
+	border:2px solid black;
+}
+.fakeimg {
+  background-color:white;
+  width: 100%;
+  padding: 20px;
+}
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+.icon-bar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+.icon-bar a {
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 36px;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+.active {
+  background-color: black;
+}
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position:center;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+.form-container .cancel {
+  background-color: red;
+}
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+.main4 {   
+	-ms-flex: 80%;
+	flex:80%;
+	background-color: white;
+	padding: 10px;
+}
+.main5 {   
+	-ms-flex: 80%;
+	flex:80%;
+	background-color: white;
+}
+.side1 {
+  -ms-flex: 20%; 
+  flex: 20%;
+  background-color:white;
+}
+.side2 {
+  -ms-flex: 40%; 
+  flex: 40%;
+  background-color:white;
+}
+</style>
+<script type = "text/javascript">
+function openForm() {
+		document.getElementById("myForm").style.display = "block";
+	}
+
+	function closeForm() {
+		document.getElementById("myForm").style.display = "none";
+	}
+</script>
+<style style="text/css">
+div.slide-left {
+  width:90%;
+  overflow:hidden;
+}
+div.slide-left p {
+  animation: slide-left 19s;
+}
+
+@keyframes slide-left {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<div class="row">
+	<div class="side1">
+	<img src="http://localhost:8080/D/images/symbol.png" width="60%">
+	</div>
+	<div class="main5"><h1 style="color:3395FF;">
+	<div class="slide-left" style="color:red">
+	<p><b>Welcome to Job Club!</b></p>
+	</div>
+	Start using Your Golden time by Part Time Job Now With Job Club !!</h1>
+	<div class="row">
+	<div class="side2"><p><b>Any Question/Query </b>
+	<a href ="http://localhost:8080/D/query1.html">
+	<b style="color:blue;">Click here</b></a>
+	|| <a href ="#"><b>  Client</a></b>
+	</p></div>
+	<p id="demo" style="font-weight:bold"></p>
+	<script>
+	var d = new Date();
+	document.getElementById("demo").innerHTML = d.toDateString();
+	</script>
+	</div></div>
+</div>
+<div class="navbar">
+	<a href ="1.html">Home</a>
+	<a href ="aboutus.html" class="right">About us</a>
+	<a href ="http://localhost:8080/D/logins.html" class="right">Login</a>
+	<div class="subnav">
+    <button class="subnavbtn" id="myinput" onkeyup="search()">Search</button>
+    <div class="subnav-content">
+		<form class="example">
+		<input type="text" placeholder="Search For Jobs" name="search2">
+		<button id="go" class="btn btn-default" type="button" 
+              onclick="document.getElementById('searchForm').submit(); return false;">Go
+      </button>
+		</form> 
+    </div>
+  </div>
+	<div class="right">
+		<div class="dropdown">
+		<button class="dropbtn" >Contact us</button>
+		<div class="dropdown-content">
+		<a href="#">E-mail ID:yevle.dhanashree@gmail.com</a>
+		<a href="#">M No.:9426032647</a>
+		<a href="#">Customer-care:079-123456</a>
+		<a href="query1.html">more...</a>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="row" id="searchForm">
+	<div class="side" id="sides">
+		<h2>Web Developer</h2>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/webdesign.jfif">
+		<p>Web developers need a combination of graphic design skills and technical computer skills that will allow them to create particular designs on web pages.
+		In addition to looking nice, websites need to be functional and secure. It is the responsibility of web developers to create such sites that meet the requirements of employers or clients. 
+		Web developers often are implementing ideas that others may have even those others lack the technical know-how to turn those ideas into an actual, functional website.
+		</p>
+		</div>
+	</div>
+	<div class="main">
+		<h3>Teaching at Home</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/taecher.jpg">
+		<p>Apart from school, many students need home tuition and can get proper care & attention, in-depth explanations, new studying methods etc.
+		Reliable home tutors provide personalised attention and unique study methods to help strengthen students’ subject comprehension.
+		An experienced tutor with decades of experience in providing home tuition can right away help you clear your doubts.
+		Other advantages of getting home tuition or having a private tutor include: individual attention at home tuition fee can range from Rs. 1,000 to Rs. 10,000 depending on the situation of the tutor (qualification, skills, experience, location, travel etc.)
+		The average cost for home tuition may also vary as per locality.
+		</p>
+		</div>
+	</div>
+	<div class="main1">
+		<h3>Typing Notes/Data Entry</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/type.jfif">
+		<p>Part Time Jobs for Freshers or Students or Female With Daily Payment.<br>
+		IMPORTANT NOTE - Now you can Work with Android Mobile Phone Also.<br>
+		1. You Need Computer or Laptop or Android Mobile jobs With Net Connection.<br>
+		2. Daily Payment Rs.500 To 1000 Per Day.<br>
+		3. Very Simple Data Entry Jobs.	<br>
+		Important Note - This is Daily Payments.100% Guarantee Income.<br>
+		</p>
+		</div>
+	</div>
+</div>
+<div class="row" id="rows">
+	<div class="side" id="sides">
+		<p><h3>Swimming Teacher</h3></p>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/swim1.jpg">
+		<p>Physical activity is very and many people like’s water and are eager to learn swimming just for fun
+	and also many people are amazing swimmer and can teach swimming effectively. 
+	So any age group person can learn and teach swimming. 
+		</p>
+		</div>
+	</div>
+	<div class="main">
+		<h3>Gym Teacher</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/jim.jpg">
+		<p>Physical fitness is very important and also with that a good physique.
+		Fitness freaks can search here a job of gym trainer can teach aerobics, cardio, and all other types of gym workout.
+		</p>
+		</div>
+	</div>
+	<div class="main1">
+		<h3>Yoga Teacher</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/yoga.jpg">
+		<p>
+		Physical fitness is very important and also with that a good physique. Yoga also keeps person mentally healthy and is also good for spiritual health. Yoga is an art if you are its artist then you can enroll and teach yoga  to people, timings would be only during morning and evening hours.
+		Important Note - This is Daily Payments.100% Guarantee Income.<br>
+		</p>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="side">
+		<h3>Delivery Boy</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/d1.jfif">
+		<p>We are looking to hire a reliable Delivery Boy to deliver packages to customers.
+		The Delivery Boy's responsibilities include verifying the identities of recipients before handing over packages, updating the status of the delivery on the company’s website upon completion of each delivery, and accepting payment for delivered packages where required.
+		You should also be able to ensure that the company vehicle is regularly refueled and well-maintained.
+		</p>
+		</div>
+	</div>
+	<div class="main">
+		<h3> Small Stiching Work</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/stich1.jpg">
+		<p>Required for Tailor. Apply now.
+		Skills : Indian,Western,Contemporary,Pattern cutting,Sewing Machines<br>
+		Job Type : Any<br>
+		Sub Type : Ladies<br>
+		Languages known : Hindi ,Marathi,Gujarati,Punjabi,Bengali,Kashmiri<br>
+		Tailoring Experience : Ladies Tailor,Designer Tailor,Boutique Tailor
+		</p>
+		</div>
+	</div>
+	<div class="main1">
+		<h3>Box Packing jobs</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/box packing.png">
+		<p>
+		If you are good at handling things, packing materials like clothes, jewelry etc in boxes then it’s an opportunity for you to work and earn. You can work from your home also by going to store and take all material at your home then pack it, and send it back.
+		Also you can go to store or that factory and work.
+		Important Note - This is Daily Payments.100% Guarantee Income.<br>
+		</p>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="side">
+		<h3>Lic Agent</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/licagent.png">
+		<p>Want a job and has knowledge in marketing and finance then, visit your nearest LIC office and meet a development officer. He will arrange your training. Post your training, you would appear for an exam by IRDA.
+		After passing the exam, you enroll yourself as agent and issued a code by LIC.
+		</p>
+		</div>
+	</div>
+	<div class="main">
+		<h3>Software/Hardware job</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/sotware.jfif">
+		<p>If you have a good knowledge of pc/laptop or are pursuing for your engineering then this job is for you; you can repair pc/laptop/mobiles 
+		hardware or software from your home or by going at individual’s place. 
+		</p>
+		</div>
+	</div>
+	<div class="main1">
+		<h3>Sell Beauty Products</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/beauty.jfif">
+		<p>If you are having knowledge of beauty products!! and want to do part time work and earn money. Then you can sell beauty products like make up materials like brushes, nail paints, lipsticks, eye shades etc from your home only.
+		Important Note - This is Daily Payments.100% Guarantee Income.<br>
+		</p>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="side">
+		<h3>Singing Teacher</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/singer.jfif">
+		<p>Having good vocal, and knows singing.
+		You can teach in any academy, or can also go home to home and teach singing.
+		</p>
+		</div>
+	</div>
+	<div class="main">
+		<h3>Music Teacher</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/music.jfif">
+		<p>Music relaxes one’s; playing different musical instruments like guitar, sitar, violin, piano, etc.
+		If you want to be a music teacher and want to work part time or professionally. 
+		</p>
+		</div>
+	</div>
+	<div class="main1">
+		<h3>Dancing Teacher </h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/dance1.jpg">
+		<p>
+		Dance moves makes body free; India has many different dance forms like bharatnatyam, kuchipudi, kathak, etc also there are many other international dance form like salsa, hip-hop, etc and Gujarat’s all time favorite dance form garba. On marriage occasions also dance would be taught. 
+		And also a school student can learn dance in group or individually.
+		Important Note - This is Daily Payments.100% Guarantee Income.<br>
+		</p>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="side">
+		<h3>Driver</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/driver.jpg">
+		<p>Driving is a controlled operation and movement of a motor vehicle; 
+	not every people can skillfully drive. Any person above age 18 to age 50, who knows driving and has a driver license; 
+	can take up a part time or full time job of a driver. 
+	Any female drivers can also apply for job. Pay would depend on distance travelled.
+	Condition: Person should have proper eye sight and should not be addicted to any type of drugs or etc.
+		</p>
+		</div>
+	</div>
+	<div class="main">
+		<h3>Dress material seller</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/dress.jpeg">
+		<p>Sometimes going to shop or mall is not preferred due to many times people feel clothes there are costly;
+		and on another side many women’s are generally free in their afternoon time, so just as to earn little bit money they sell dress materials, 
+		directly buying from wholesale market in bunches being at their home only putting not much amount of profit on clothes customers can also 
+		sometimes buy few things in bunches.
+		So such women’s can advertise here. 
+		</p>
+		</div>
+	</div>
+	<div class="main1">
+		<h3>Artificial/Handmade Ornament seller</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/jewellery.jpg">
+		<p>Do you love accessorizing with beautiful jewellery?
+	Is fashion an area where you thrive? Do you have a talent for creating unique jewelry and love making beautiful things with your own hands?
+	If you answered yes to any of these questions, selling jewelry from home might be a great way to bring in some extra income.
+	Prize would depend on kind of jewelry and job can be both part time and full time from your home only so you can register and advertise.
+		Important Note - This is Daily Payments.100% Guarantee Income.<br>
+		</p>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="side">
+		<h3>Mutual Fund Agent</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/mf5.png">
+		<p>
+		</p>
+		</div>
+	</div>
+	<div class="main">
+		<h3>Tax Payment (Accounting)Agent</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/mf4.jpg">
+		<p>
+		</p>
+		</div>
+	</div>
+	<div class="main1">
+		<h3>Makeup Product Seller</h3>
+		<div class="img">
+		<img src="http://localhost:8080/D/images/m.jfif">
+		<p>
+		Important Note - This is Daily Payments.100% Guarantee Income.<br>
+		</p>
+		</div>
+	</div>
+</div>
+<div class="footer">
+  For more Details Please  
+  <a href="http://localhost:8080/D/register.html">Sign Up</a> or
+	<center><button class="open-button" onclick="openForm()">Login</button></center>
+	<div class="form-popup" id="myForm">
+	<form class="form-container" onsubmit="m()">
+	 <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit" class="btn">Login</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+	Forgot <p>Username/Password?</p>
+	<a href="http://localhost:8080/D/register.html">Create your account</a>
+</form>
+</div>
+</div>
+</body>
+</html>
+<script type = "text/javascript">
+	function m()
+	{
+		alert("Logined Successfully");
+		
+		window.open("file:///C:/Users/Dell/Desktop/apply.html?search2=#");
+		
+	}
+</script>
+<script>
+function search()
+{
+var input,t,filter,h3,row,side,main1,main2,main3,i,txt,s;
+
+	input=document.getElementById("searchForm").elements["myinput"].value;
+	
+    filter = input.value.toUpperCase();
+	//txt="";
+    s = document.getElementByClassName("side");
+	// s = row.getElementsByClassName("side");
+	p=s.getElementsByTagName("p");
+    for (i = 0; i < s.length; i++) {
+        h3 = s[i].getElementsByTagName("h3")[0];
+        //h3[0].innerText.toUpperCase().indexOf(filter);
+		txtValue = p.textContent || p.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            s[i].style.display = "";
+        } else {
+            s[i].style.display = "none";
+        
+	}
+	}
+}</script>

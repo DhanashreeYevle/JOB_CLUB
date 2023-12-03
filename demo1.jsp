@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Page</title>
+<style>
+input[type=text],[type=password]{
+	width:350px;
+	 padding: 10px;
+  	font-size: 17px;
+  	border: 1px solid grey;
+  	float: center;
+  	//width: 80%;
+  	background: #f1f1f1;
+}
+p{
+	color:darkred;
+}
+fieldset{
+	border:2px black solid;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.navbar 
+{
+	overflow: hidden;
+	background-color:grey;
+}
+.navbar a 
+{
+	float: left;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+}
+.navbar a.right {
+  float: right;
+}
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: grey;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position:absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  min-height:180px
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+.subnav .subnavbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: grey;
+}
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color:grey;
+  width: 100%;
+  z-index: 1;
+}
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+.subnav-content a:hover {
+  background-color: #eee;
+  color: black;
+}
+.subnav:hover .subnav-content {
+  display: block;
+}
+.login
+{
+	background-color:#4CAF50; 
+	color: white; 
+	padding: 8px 100px;
+	margin:5px;
+ 	margin-bottom:10px;
+	cursor: pointer;
+	width:350px;
+	font-size: 17px;
+}
+.login submit:hover {
+  background: #0b7dda;
+}
+.side2 {
+  -ms-flex: 40%; 
+  flex: 40%;
+  background-color:white;
+}
+.main5 {   
+	-ms-flex: 80%;
+	flex:80%;
+	background-color: white;
+}
+.side1 {
+  -ms-flex: 20%; 
+  flex: 20%;
+  background-color:white;
+}
+.main {   
+	-ms-flex: 70%;
+	flex:70%;
+	background-color: white;
+}
+.side {
+  -ms-flex: 30%; 
+  flex: 30%;
+  background-color:white;
+	padding-left:200px;
+}
+.row {  
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.container {
+  float:center;
+  width:50%;
+  background-color: none;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid grey;
+  border-radius: 3px;
+	text-align:center;
+}
+.container1 {
+  float:center;
+  width:80%;
+  background-color: none;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid grey;
+  border-radius: 3px;
+	text-align:center;
+	height:100%;
+}
+.panel{
+ background-color: #0066ff;
+	height:30px;text-align:center;
+}
+</style>
+</style>
+<style style="text/css">
+div.slide-left {
+  width:90%;
+  overflow:hidden;
+}
+div.slide-left p {
+  animation: slide-left 19s;
+}
+
+@keyframes slide-left {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }	
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="row">
+	<div class="side1">
+	<img src="http://localhost:8080/D/images/symbol.png" width="60%">
+	</div>
+	<div class="main5">
+	<div class="slide-left"><h1>
+	<p><b  style="color:red">Welcome to Job Club!</b></p>
+	</div>
+	<div class="row">
+	<div class="side2"><p style="color:black"><b>Any Question/Query </b>
+	<a href ="file:///C:/Users/Dell/Desktop/query1.html">
+	<b style="color:blue;">Click here</b></a>
+	|| <a href ="#"><b>  Client</a></b>
+	</p></div>
+	<p id="demo" style="font-weight:bold;color:black"></p>
+	<script>
+	var d = new Date();
+	document.getElementById("demo").innerHTML = d.toDateString();
+	</script>
+	</div></div>
+</div>
+<div class="navbar">
+	<a href ="1.html">Home</a>
+	<a href ="#" class="right">About us</a>
+	<a href ="logins.html" class="right">Login</a>
+
+	<div class="right">
+		<div class="dropdown">
+		<button class="dropbtn" >Contact us</button>
+		<div class="dropdown-content">
+		<a href="#">E-mail ID:yevle.dhanashree@gmail.com</a>
+		<a href="#">M No.:9426032647</a>
+		<a href="#">Customer-care:079-123456</a>
+		<a href="query.html">more...</a>
+		</div>
+		</div>
+	</div>
+</div><br><br>
+
+
+<%--
+
+getServletContext().getRequestDispatcher("/logins.html").include(request, 
+response);
+
+--%>
+<div class="row">
+	<div class="side">
+	<div class="container1">
+	<b style="color:#4CAF50">Instruction</b><hr><marquee direction="up" scrollamount="2" height="227px" width=100% >
+	<p style="color:blue">
+	Enter mobile number as Username same as written at time of registration
+	<br><br>Password would be same as written in registered.
+</marquee>
+	</div></div><div class="main">
+<div class="container">
+
+<legend><h2><b style="color:Blue">L</b><b style="color:#4CAF50">o</b><b style="color:blue">g</b><b style="color:#4CAF50">i</b><b style="color:blue">n</b></h2></legend><br>
+<form action="login.jsp" method="post">
+	<p style="color:red">Invalid Username or Password</p>
+	<label>Username:</label><br>
+	<input type="text" name="mobile" required/><br><br>
+	<label>Password:</label><br>
+	<input type="password" name="password" id="myInput" required/><br><br>
+	<input type="checkbox" onclick="myFunction()">Show Password
+
+<script>
+	function myFunction() {
+	  var x = document.getElementById("myInput");
+	  if (x.type === "password") {
+	    x.type = "text";
+		  } else {
+    		x.type = "password";
+  		}
+	}
+</script><br>
+	<input type="submit" class="login" value="Login"/>
+</form></div></div></div>
+<br><hr><center>	<p>
+		<b>Not yet SignUp</b>
+		 <a href="http://localhost:8080/D/register.html">
+		 	 <b>Create Your Account</b>
+		 </a><br><br>
+		<hr color="grey" width=35%>
+	 	<a href="http://localhost:8080/D/1.html">Go Back to Home</a>
+	</p>
+</center>
+</body>
+</html>
